@@ -1,0 +1,117 @@
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<meta charset="utf-8">
+<title>在线试读</title>
+<link rel="stylesheet" href="/n/css/disread/disreadmobile/swiper.min.css">
+<link href="/n/css/disread/disreadmobile/reader.css" rel="stylesheet" type="text/css" />
+<style>
+.swiper-lazy-preloader{
+	width: 35px;
+	height: 35px;
+	-webkit-animation: initial;
+	-moz-animation: initial;
+	animation: initial;
+}
+.swiper-lazy-preloader-white::after{
+	background-image:initial;
+}
+.swiper-lazy-preloader-white::after{ background-image: url(/n/css/disread/disreadmobile/images/loading.gif);}
+.headerhide{display: none;}
+</style>
+<script type="text/javascript" src="/n/js/reader/require.js"></script>
+</head>
+<body>
+<!--
+    <header class="header swipe_hov">
+        <a href="" class="button sy"><img src="/n/css/disread/disreadmobile/images/back.png" width="10" height="17" /></a>
+        <h2>在线试读</h2>
+        <span class="pos button"></span>
+    </header>
+-->
+    <div class="device">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+        	<div class="swiper-slide">
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          	</div>
+          <!-- <div class="swiper-slide">
+             <img data-src="http://lorempixel.com/1600/1200/nature/1/"  class="swiper-lazy"/>
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="swiper-slide">
+             <img data-src="http://lorempixel.com/1600/1200/nature/2/" class="swiper-lazy" />
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="swiper-slide">
+             <img data-src="http://lorempixel.com/1600/1200/nature/3/" class="swiper-lazy" />
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="swiper-slide">
+             <img data-src="http://lorempixel.com/1600/1200/nature/4/" class="swiper-lazy" />
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="swiper-slide">
+             <img data-src="http://lorempixel.com/1600/1200/nature/5/" class="swiper-lazy" />
+             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div> -->
+        </div>
+      </div>
+      <!--<div class="pagination"></div> -->
+    </div>
+
+<script type="text/javascript">
+	requirejs.config({
+		paths: {
+			"jquery": "/n/js/reader/jquery/jquery.min",
+			'jsBridge': '/n/js/disread/disreadmobile/jsBridge',
+			'swiper': '/n/js/disread/disreadmobile/swiper.min',
+			'loadJS': '/n/js/reader/requireLoadJSFix',
+			'layer': '/n/js/layer/layer.min',
+			'imgCaptcha':'/n/js/reader/reader/imgCaptcha',
+			'disreadmobile': '/n/js/disread/disreadmobile/disreadmobile',
+			'AppUtils': '/n/js/disread/disreadmobile/apputils',
+			'SlibStcs': '/n/js/disread/disreadmobile/slib_stcs'
+		},
+		shim: {
+			'layer': {
+				deps: ['jquery']
+			},
+		},
+		urlArgs: 't=20190819',
+		charset: 'gbk'
+	});
+
+	require(['disreadmobile','SlibStcs'], function (disreadmobile,SlibStcs) {
+		var pages = [[1,0],[1,1],[1,1],[1,2], [1,6], [1,364], [1, 0],  [1, 0]], startPage = '1', endPage = '-1', cpage = [1, 5], ssno = '14902192';
+
+		disreadmobile.disreadmobile({
+      startPage: startPage,
+			endPage: endPage,
+			jpgPath: '/n/767c9ea5ace83ae788346112fbd84767MC392446145221/img0/1C7B15F179F81279C6DB1137393425261F699111BC354BC9BFC8A774F0E77694AE6C2736868AB8EF6D562C6329D94A57EB88EE5250ECF8FF4E96F81360F22CA52E745598ABAB1E0C86CA1F202FCC189131E6C260C37235C5009F6B540A908B61E287AE24AD8838A1B3E4D128198ECEBFC40B/bf1/tryreadbook/14902192/D61C773A740148CC949E2A2E0FFD3BF4/',
+			pages: pages,
+			cpage: cpage,
+			ssno: ssno,
+			endMsg: endPage == -1 ? "已至尾页" : "试读结束"
+		});
+
+		if (window.location.pathname.indexOf('/disreadbook/') !== -1) {
+			SlibStcs('14902192','112.49.1.129', '1817020601');
+		}
+	});
+</script>
+
+</body>
+</html>
